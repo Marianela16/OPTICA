@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Nombre de tu Sitio</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #5DC1B9;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+        }
+        footer {
+            background-color: #5DC1B9;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+    <style>
+    
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    color: #5DC1B9;
+    margin: 0.5rem 0;
+}
+
+.product-card button {
+    background-color: #5DC1B9;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+.product-card button:hover {
+    background-color: #d35400;
+}
+    </style>
+     <style>
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .carousel-control-prev {
+      border-radius: 0 5px 5px 0;
+    }
+
+    .carousel-control-next {
+      border-radius: 5px 0 0 5px;
+    }
+  </style>
+
+</head>
+<body>
+    <header>
+        <h1>Nombre de tu Sitio</h1>
+        <p>Eslogan o descripción breve</p>
+    </header>
+    <div class="container">
+        <nav>
+            <!-- Menú principal -->
+            <ul>
+                <li><a href="Menuprincipal.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <!-- Información de contacto -->
+            <h1>LO MAS VENDIDO</h1>
+ 
+    <main>
+        <div id="product-container" class="product-container">
+            <!-- Los productos se añadirán aquí dinámicamente -->
+        </div>
+    </main>
+            <script>
+        const products = [
+    { id: 1, name: 'Limpiador NewEyes', description: 'Nuevo limpiador de gafas NewEyes de 350 ml', price: 'S/40', imageUrl: 'imgproductos/multimax.jpeg' },
+    
+    { id: 2, name: 'Gafas sol-NewVision', description: 'Lo nuevo de la coleccion NewVision verano-2024', price: 'S/120', imageUrl: 'imgproductos/sol.jpeg' },
+
+    { id: 3, name: 'Lente de contacto estético', description: 'Lente de contacto color marrón', price: 'S/90', imageUrl: 'imgproductos/airoptix.jpg' },
+    // Agrega más productos aquí
+];
+
+function createProductCard(product) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    const img = document.createElement('img');
+    img.src = product.imageUrl;
+    img.alt = product.name;
+
+    const title = document.createElement('h2');
+    title.textContent = product.name;
+
+    const description = document.createElement('p');
+    description.textContent = product.description;
+
+    const price = document.createElement('p');
+    price.className = 'price';
+    price.textContent = product.price;
+
+    const button = document.createElement('button');
+    button.textContent = ' Añadir al carrito';
+    button.onclick = () => {
+        alert(`Añadido ${product.name} al carrito`);
+    };
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(description);
+    card.appendChild(price);
+    card.appendChild(button);
+
+    return card;
+}
+
+function loadProducts() {
+    const productContainer = document.getElementById('product-container');
+    products.forEach(product => {
+        const productCard = createProductCard(product);
+        productContainer.appendChild(productCard);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', loadProducts);
+
+            </script>   
+        </div>
+        
+      <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="carretehombre/hombre1.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img src="carretehombre/hombre2.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img src="carretehombre/hombre3.jpg" alt="Third slide">
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
+      <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+        <!-- carrete 2 -->
+    <div class="carousel" id="carousel2">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="image2a.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img src="image2b.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img src="image2c.jpg" alt="Third slide">
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-control-prev" onclick="prevSlide('carousel2')">&#10094;</button>
+      <button class="carousel-control-next" onclick="nextSlide('carousel2')">&#10095;</button>
+    </div>
+  </div>     
+        
+          <!-- carrete 3 -->
+   <div class="carousel" id="carousel3">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="image3a.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img src="image3b.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img src="image3c.jpg" alt="Third slide">
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-control-prev" onclick="prevSlide('carousel3')">&#10094;</button>
+      <button class="carousel-control-next" onclick="nextSlide('carousel3')">&#10095;</button>
+    </div>
+  </div>      
+        
+        
+        
+        
+        
+        
+        
+  <script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.carousel-item');
+      if (index >= slides.length) {
+        currentSlide = 0;
+      } else if (index < 0) {
+        currentSlide = slides.length - 1;
+      } else {
+        currentSlide = index;
+      }
+      document.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    // Optional: Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>   
+        
+        
+    </div>
+    <footer>
+        <!-- Barra final con contenido seleccionable -->
+        <a href="#">Cupones</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Aviso Legal</a>
+    </footer>
+
+
+
+
+<style>
+    /* Contenedor de la cuadrícula */
+    .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            grid-template-rows: repeat(9, 1fr);    /* 9 filas */
+            gap: 10px; /* Espacio entre celdas */
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        /* Elementos de la cuadrícula */
+        .grid-item {
+            background-color: #ffffff;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+</style>
+<div class="grid-container">
+  <!-- Genera 27 elementos (3 columnas x 9 filas) con imágenes y enlaces -->
+  <div class="grid-item">
+      <img src="imgproductos/imagen1.png" alt="Imagen 1">
+      <a href="pagina1.html">Ir a página 1</a>
+  </div>
+  <div class="grid-item">
+      <img src="imgproductos/imagen2.jpeg" alt="Imagen 2">
+      <a href="pagina2.html">Ir a página 2</a>
+  </div>
+  <div class="grid-item">
+      <img src="imgproductos/imagen3.jpeg" alt="Imagen 3">
+      <a href="pagina3.html">Ir a página 3</a>
+  </div>
+  <div class="grid-item">
+      <img src="imgproductos/imagen4.png" alt="Imagen 4">
+      <a href="pagina4.html">Ir a página 4</a>
+  </div>
+  <div class="grid-item">
+      <img src="imgproductos/imagen5.jpeg" alt="Imagen 5">
+      <a href="pagina5.html">Ir a página 5</a>
+  </div>
+  <div class="grid-item">
+      <img src="imgproductos/imagen6.jpeg" alt="Imagen 6">
+      <a href="pagina6.html">VER</a>
+  </div>
+  <div class="grid-item">
+    <img src="imgproductos/imagen7.jpeg" alt="Imagen 7">
+    <a href="pagina7.html">VER</a>
+</div>
+<div class="grid-item">
+  <img src="imgproductos/imagen8.jpeg" alt="Imagen 8">
+  <a href="pagina8.html">VER</a>
+</div>
+<div class="grid-item">
+  <img src="imgproductos/imagen9.jpeg" alt="Imagen 9">
+  <a href="pagina9.html">VER</a>
+</div>
+  <!-- Continúa con más elementos según sea necesario -->
+</div>
+
+
+
+
+</body>
+</html>

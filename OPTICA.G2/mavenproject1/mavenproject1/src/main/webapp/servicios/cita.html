@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Nombre de tu Sitio</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #5DC1B9;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+        }
+        footer {
+            background-color: #5DC1B9;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+    <style>
+        /* Estilos CSS para el menú */
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .menu li {
+            display: inline-block;
+            margin: 10px;
+        }
+        .menu li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .menu li a:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea,
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+    </style>
+   
+</head>
+<body>
+    <header>
+        <h1>Nombre de tu Sitio</h1>
+        <p>Eslogan o descripción breve</p>
+    </header>
+    <div class="container">
+        <nav>
+            <!-- Menú principal -->
+            <ul>
+                <li><a href="MENU PRINCIPAL.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <!-- Información de contacto -->
+            <h2>Servicios</h2>
+  <h1>Menú de Opciones</h1>
+
+    <ul class="menu">
+        <li><a href="servicios/repara.html">Reparación de Gafas</a></li>
+        <li><a href="servicios/cita.html">Cita Visual</a></li>
+        <li><a href="#">Venta de Lentes de Contacto</a></li>
+        <li><a href="#">Exámenes Oftalmológicos</a></li>
+        <li><a href="#">Promociones</a></li>
+    </ul>
+        </div>
+    </div>
+    
+    <h1>Reserva su Cita Visual</h1>
+
+    <h2>Formulario con opciones</h2>
+
+    <form action="/procesar_formulario" method="POST">
+
+        <!-- Campo de texto -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br><br>
+
+        <!-- Selección de género -->
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select>
+        <br><br>
+
+        <!-- Selección de preferencias -->
+        <label>Seleccione el turno de preferencia</label><br>
+        <input type="checkbox" id="preferencia1" name="preferencias" value="deportes">
+        <label for="preferencia1">Mañana:8:00AM-12:00PM</label><br>
+        <input type="checkbox" id="preferencia2" name="preferencias" value="lectura">
+        <label for="preferencia2">Tarde:2:00PM-4:00PM</label><br>
+        <input type="checkbox" id="preferencia3" name="preferencias" value="viajes">
+        <label for="preferencia3">Noche:5:00PM-8:00PM</label>
+        <br><br>
+
+        <!-- Selección de idioma -->
+        <label for="idioma">Idioma preferido:</label>
+        <input list="idiomas" id="idioma" name="idioma">
+        <datalist id="idiomas">
+            <option value="Español">
+            <option value="Inglés">
+            <option value="Francés">
+        </datalist>
+        <br><br>
+
+        <!-- Botón de enviar -->
+        <input type="submit" value="Reservar Cita">
+    </form>
+    
+    <br>
+    
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('reservationForm');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Validación básica (solo se verifica que los campos no estén vacíos)
+        const nombre = document.getElementById('nombre').value;
+        const telefono = document.getElementById('telefono').value;
+        const email = document.getElementById('email').value;
+        const producto = document.getElementById('producto').value;
+        const descripcion = document.getElementById('descripcion').value;
+        const fecha = document.getElementById('fecha').value;
+
+        if (!nombre || !telefono || !email || !producto || !descripcion || !fecha) {
+            alert('Por favor completa todos los campos.');
+            return;
+        }
+
+        // Aquí podrías agregar código para enviar los datos a un servidor o realizar otra acción
+        // Puedes usar fetch() o enviarlos por AJAX, dependiendo de tu configuración y preferencia.
+
+        // Ejemplo de enviar datos usando fetch():
+        /*
+        fetch('url_del_servidor', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nombre: nombre,
+                telefono: telefono,
+                email: email,
+                producto: producto,
+                descripcion: descripcion,
+                fecha: fecha
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Error en la solicitud.');
+        })
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            alert('¡Reserva enviada con éxito!');
+            // Aquí podrías redirigir a otra página o realizar otra acción después de enviar la reserva.
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al enviar la reserva. Por favor intenta nuevamente más tarde.');
+        });
+        */
+
+        // Simplemente mostramos una alerta de prueba en este ejemplo
+        alert('¡Reserva enviada con éxito!');
+        form.reset(); // Limpiar el formulario después del envío
+    });
+});
+ 
+    </script>
+
+    <br>
+    
+    
+ 
+    
+    
+    <footer>
+        <!-- Barra final con contenido seleccionable -->
+        <a href="#">Cupones</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Aviso Legal</a>
+    </footer>
+</body>
+</html>
