@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar y Unir Archivos Excel</title>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h1>Comparar y Unir Archivos Excel</h1>
+    
+    <label for="file1">Archivo Excel 1:</label>
+    <input type="file" id="file1" accept=".xlsx" /><br><br>
+
+    <label for="file2">Archivo Excel 2:</label>
+    <input type="file" id="file2" accept=".xlsx" /><br><br>
+
+    <button onclick="compararExcels()">Comparar y Descargar</button>
+
+    <script>
+        let workbook1, workbook2;
+
+        // Leer el primer archivo Excel
+        document.getElementById('file1').addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const data = new Uint8Array(e.target.result);
+                workbook1 = XLSX.read(data, { type: 'array' });
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+
+        // Leer el segundo archivo Excel
+        document.getElementById('file2').addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const data = new Uint8Array(e.target.result);
+                workbook2 = XLSX.read(data, { type: 'array' });
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+
+        function compararExcels() {
+            if (!workbook1 || !workbook2) {
+                alert("Por favor, cargue ambos archivos Excel.");
+                return;
+            }
+
+            // Trabajar con la primera hoja de ambos archivos
+            const sheet1 = workbook1.Sheets[workbook1.SheetNames[0]];
+            const sheet2 = workbook2.Sheets[workbook2.SheetNames[0]];
+
+            // Convertir ambas hojas en JSON
+            const data1 = XLSX.utils.sheet_to_json(sheet1, { header: 1 });
+            const data2 = XLSX.utils.sheet_to_json(sheet2, { header: 1 });
+
+            // Usar Sets para almacenar las filas de ambos archivos
+            const set1 = new Set(data1.map(row => JSON.stringify(row)));
+            const set2 = new Set(data2.map(row => JSON.stringify(row)));
+
+            const soloEnArchivo1 = [];
+            const soloEnArchivo2 = [];
+            const duplicados = [];
+
+            // Encontrar duplicados y filas únicas en cada archivo
+            data1.forEach(row => {
+                const rowStr = JSON.stringify(row);
+                if (set2.has(rowStr)) {
+                    duplicados.push(row); // Está en ambos archivos
+                } else {
+                    soloEnArchivo1.push(row); // Solo en el primer archivo
+                }
+            });
+
+            data2.forEach(row => {
+                const rowStr = JSON.stringify(row);
+                if (!set1.has(rowStr)) {
+                    soloEnArchivo2.push(row); // Solo en el segundo archivo
+                }
+            });
+
+            // Combinar todas las filas en un solo array (primero duplicados, luego los únicos)
+            const resultadoFinal = [
+                ['Duplicados en ambos archivos:'], 
+                ...duplicados,
+                [''],
+                ['Solo en Archivo 1:'], 
+                ...soloEnArchivo1,
+                [''],
+                ['Solo en Archivo 2:'], 
+                ...soloEnArchivo2
+            ];
+
+            // Crear una nueva hoja con el resultado
+            const newSheet = XLSX.utils.aoa_to_sheet(resultadoFinal);
+
+            // Crear un nuevo workbook
+            const newWorkbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(newWorkbook, newSheet, 'Comparación');
+
+            // Generar el archivo Excel y descargarlo
+            XLSX.writeFile(newWorkbook, 'comparacion_resultado.xlsx');
+        }
+    </script>
+</body>
+</html>
