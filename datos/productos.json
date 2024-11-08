@@ -1,0 +1,5 @@
+[
+    { "id": 1, "nombre": "Lente de sol", "precio": 199.99 },
+    { "id": 2, "nombre": "Lente de lectura", "precio": 99.99 },
+    { "id": 3, "nombre": "Lente para computadora", "precio": 149.99 }
+]

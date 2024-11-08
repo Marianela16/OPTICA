@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Óptica</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <h1>Tienda de Lentes</h1>
+    
+    <!-- Sección de productos -->
+    <div id="productos-container"></div>
+
+    <!-- Carrito de compras -->
+    <h2>Carrito de Compras</h2>
+    <div id="carrito"></div>
+    
+    <script src="js/dao.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
