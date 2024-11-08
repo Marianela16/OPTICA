@@ -42,7 +42,7 @@
         <artifactId>logback-core</artifactId>
         <version>1.4.11</version> 
     </dependency>
-<dependencies>
+<dependencies>s
    
     <dependency>
         <groupId>org.apache.commons</groupId>
