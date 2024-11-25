@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas de Seguridad - Óptica Falcón</title>
+
+    <!-- Content-Security-Policy para evitar ejecución de scripts no deseados -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; object-src 'none';">
+    
+    <style>
+        /* Estilo básico para inputs y formularios */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .form-control {
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #5DC1B9;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #48a49a;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pruebas de Seguridad</h1>
+    <p>Validaciones básicas implementadas en HTML.</p>
+
+    <!-- Formulario con validaciones -->
+    <form id="secureForm" action="procesar.html" method="POST">
+        <div class="form-control">
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" name="username" required minlength="3" maxlength="20" pattern="[a-zA-Z0-9]+" title="Solo letras y números permitidos">
+            <small class="error" id="errorUsername"></small>
+        </div>
+        <div class="form-control">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <small class="error" id="errorEmail"></small>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p><strong>Nota:</strong> Este formulario incluye validaciones nativas para evitar datos maliciosos.</p>
+</body>
+</html>
