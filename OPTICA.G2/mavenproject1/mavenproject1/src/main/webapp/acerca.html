@@ -25,6 +25,9 @@
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        header p {
+            font-style: italic;
+        }
         nav {
             background-color: #444;
             padding: 10px;
@@ -48,9 +51,25 @@
         nav ul li a:hover {
             background-color: #666;
         }
+
+        /* Estilos para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            header {
+                text-align: center;
+            }
+            nav ul {
+                display: block;
+            }
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
         .content {
             padding: 20px;
         }
+
         footer {
             background-color: #5DC1B9;
             color: #fff;
@@ -69,51 +88,53 @@
 </head>
 <body>
     <header>
-        <h1>Nombre de tu Sitio</h1>
-        <p>Eslogan o descripción breve</p>
+        <h1>ÓPTICA FALCÓN</h1>
+        <p>Tu vista, nuestra prioridad.</p>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="Menuprincipal.html" aria-label="Ir a la página de inicio">Inicio</a></li>
+            <li><a href="productos.html" aria-label="Ver nuestros productos">Productos</a></li>
+            <li><a href="servicios.html" aria-label="Ver servicios disponibles">Servicios</a></li>
+            <li><a href="acerca.html" aria-label="Conocer más sobre nosotros">Acerca de</a></li>
+            <li><a href="contacto.html" aria-label="Contactarnos">Contacto</a></li>
+            <li><a href="login.html" aria-label="Acceder a tu cuenta">Cuenta</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <nav>
-            <!-- Menú principal -->
-            <ul>
-                <li><a href="MENU PRINCIPAL.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="acerca.html">Acerca de</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
         <div class="content">
-            <!-- Información de contacto -->
             <h2>Acerca de nosotros</h2>
-            <p>En OPTICA FALCON nos dedicamos apasionadamente a cuidar de la salud visual de nuestros clientes desde hace más de una década. Situada estratégicamente en el corazón de Villa Alejandro, Lima, Perú, nuestra óptica se ha convertido en un referente de confianza y profesionalismo en la comunidad.</p>
+            <p>En <strong>Óptica Falcón</strong> nos dedicamos apasionadamente a cuidar de la salud visual de nuestros clientes desde hace más de una década. Situada estratégicamente en el corazón de Villa Alejandro, Lima, Perú, nuestra óptica se ha convertido en un referente de confianza y profesionalismo en la comunidad.</p>
 
-    <p>Enfocados en ofrecer un servicio integral y personalizado, contamos con un equipo de optometristas y especialistas altamente capacitados que están comprometidos con proporcionar la mejor atención oftalmológica. Desde exámenes de la vista precisos hasta la selección de monturas y lentes de calidad, nos aseguramos de que cada cliente reciba soluciones adaptadas a sus necesidades individuales.</p>
+            <p>Enfocados en ofrecer un servicio integral y personalizado, contamos con un equipo de optometristas y especialistas altamente capacitados que están comprometidos con proporcionar la mejor atención oftalmológica. Desde exámenes de la vista precisos hasta la selección de monturas y lentes de calidad, nos aseguramos de que cada cliente reciba soluciones adaptadas a sus necesidades individuales.</p>
 
-    <p>Nuestra amplia gama de productos incluye desde gafas de diseño hasta lentes de contacto de última generación, garantizando que nuestros clientes encuentren exactamente lo que están buscando para mejorar su visión y estilo de vida.</p>
- <img src="marcas.jpg" alt="OPTICA FALCON">
-    
-    <p>En OPTICA FALCON, la calidad es nuestra prioridad. Trabajamos únicamente con proveedores reconocidos en el mercado, asegurando la autenticidad y durabilidad de cada producto que ofrecemos. Además, nos mantenemos al tanto de las últimas tecnologías y tendencias en el campo de la óptica para poder ofrecer siempre las mejores opciones a nuestros clientes.</p>
+            <p>Nuestra amplia gama de productos incluye desde gafas de diseño hasta lentes de contacto de última generación, garantizando que nuestros clientes encuentren exactamente lo que están buscando para mejorar su visión y estilo de vida.</p>
+            
+            <img src="marcas.jpg" alt="Logos de marcas de gafas y lentes en Óptica Falcón" width="100%" height="auto">
 
-    <p>Nos enorgullece no solo ayudar a nuestros clientes a ver mejor, sino también a cuidar de su salud visual a largo plazo. Creemos en establecer relaciones de confianza y en brindar un servicio excepcional que supere las expectativas.</p>
+            <p>En <strong>Óptica Falcón</strong>, la calidad es nuestra prioridad. Trabajamos únicamente con proveedores reconocidos en el mercado, asegurando la autenticidad y durabilidad de cada producto que ofrecemos. Además, nos mantenemos al tanto de las últimas tecnologías y tendencias en el campo de la óptica para poder ofrecer siempre las mejores opciones a nuestros clientes.</p>
 
-    <p>Visítenos en <strong>Av. Lindbergh Mz. L lote 26, Villa Alejandro, Lima, Perú</strong>, y descubra por qué OPTICA FALCON es su mejor elección para el cuidado de sus ojos. Permítanos ser su socio en el camino hacia una visión más clara y una vida más saludable.</p>
+            <p>Nos enorgullece no solo ayudar a nuestros clientes a ver mejor, sino también a cuidar de su salud visual a largo plazo. Creemos en establecer relaciones de confianza y en brindar un servicio excepcional que supere las expectativas.</p>
 
-    <p>Estamos aquí para usted, porque en OPTICA FALCON, su vista es nuestra misión.</p>
-    
-    <p><strong>Estamos asociados con multiples compañias como metodos de pago</strong></p>
-    
-     <img src="mediopago.png" alt="OPTICA FALCON">
-   
+            <p>Visítenos en <strong>Av. Lindbergh Mz. L lote 26, Villa Alejandro, Lima, Perú</strong>, y descubra por qué <strong>Óptica Falcón</strong> es su mejor elección para el cuidado de sus ojos. Permítanos ser su socio en el camino hacia una visión más clara y una vida más saludable.</p>
+
+            <p>Estamos aquí para usted, porque en <strong>Óptica Falcón</strong>, su vista es nuestra misión.</p>
+
+            <p><strong>Estamos asociados con múltiples compañías como métodos de pago.</strong></p>
+            
+            <img src="mediopago.png" alt="Métodos de pago aceptados en Óptica Falcón" width="100%" height="auto">
         </div>
     </div>
+
     <footer>
         <!-- Barra final con contenido seleccionable -->
-        <a href="#">Cupones</a>
-        <a href="#">Términos y Condiciones</a>
-        <a href="#">Política de Privacidad</a>
-        <a href="#">Aviso Legal</a>
+        <a href="cupones.html" aria-label="Ver cupones de descuento">Cupones</a>
+        <a href="terminos.html" aria-label="Ver términos y condiciones">Términos y Condiciones</a>
+        <a href="politica.html" aria-label="Ver política de privacidad">Política de Privacidad</a>
+        <a href="legal.html" aria-label="Ver aviso legal">Aviso Legal</a>
+        
     </footer>
 </body>
 </html>
-
