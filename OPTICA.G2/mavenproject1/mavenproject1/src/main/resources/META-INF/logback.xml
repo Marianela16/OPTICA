@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <configuration>
     <!-- Appender para guardar los logs en un archivo -->
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
@@ -7,30 +9,6 @@
         </encoder>
     </appender>
 
-    <!-- Definimos el nivel del log y la salida -->
-    <root level="info">
-        <appender-ref ref="FILE" />
-    </root>
-    <?xml version="1.0" encoding="UTF-8"?>
-
-
-    <!-- Configuración de log en consola -->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.layout.PatternLayout">
-            <Pattern>%d{yyyy-MM-dd HH:mm:ss} - %level - %msg%n</Pattern>
-        </layout>
-    </appender>
-
-    <!-- Logger específico para la clase ProductoService -->
-    <logger name="ProductoService" level="debug">
-        <appender-ref ref="console"/>
-    </logger>
-
-    <!-- Logger raíz para capturar logs generales -->
-    <root level="info">
-        <appender-ref ref="console"/>
-    </root>
-    
     <!-- Appender para imprimir en la consola -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -39,12 +17,16 @@
         </encoder>
     </appender>
 
-    <!-- Root Logger: esto significa que todos los logs se envían a la consola -->
-    <root level="debug">
-        <appender-ref ref="CONSOLE" />
+    <!-- Logger específico para la clase ProductoService -->
+    <logger name="ProductoService" level="debug">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Logger raíz para capturar logs generales -->
+    <root level="info">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </root>
 
-
-
-
 </configuration>
+
