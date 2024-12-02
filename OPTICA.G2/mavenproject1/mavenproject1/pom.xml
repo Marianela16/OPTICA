@@ -78,12 +78,19 @@
         <version>2.0.0</version>
     </dependency>
     <!-- Dependencia de Junit -->
-    <dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter</artifactId>
-    <version>5.9.3</version>
-    <scope>test</scope>
-</dependency>
+<!-- Dependencia para JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
 <!-- Dependencia de mockito -->
 <dependency>
     <groupId>org.mockito</groupId>
