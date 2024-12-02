@@ -30,6 +30,21 @@
     <root level="info">
         <appender-ref ref="console"/>
     </root>
+    
+    <!-- Appender para imprimir en la consola -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Formato de los logs (fecha, nivel, nombre de la clase, mensaje) -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root Logger: esto significa que todos los logs se envían a la consola -->
+    <root level="debug">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+
 
 
 </configuration>
