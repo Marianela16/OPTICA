@@ -48,20 +48,6 @@
         nav ul li a:hover {
             background-color: #666;
         }
-        .carousel {
-            margin: 20px auto;
-            width: 80%;
-            overflow: hidden;
-            position: relative;
-        }
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .carousel-item {
-            min-width: 100%;
-            flex: 0 0 auto;
-        }
         .content {
             padding: 20px;
         }
@@ -72,7 +58,7 @@
             padding: 10px;
             position: fixed;
             bottom: 0;
-            width: 91%;
+            width: 100%;
         }
         footer a {
             color: #fff;
@@ -126,24 +112,62 @@
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
+        /* Estilos para el carrusel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .carousel-control.left {
+            left: 10px;
+        }
+        .carousel-control.right {
+            right: 10px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>OPTICA FALCON</h1>
+        <h1>ÓPTICA FALCÓN</h1>
         <p>Eslogan o descripción breve</p>
     </header>
+    <nav>
+        <ul>
+            <li><a href="Menuprincipal.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="login.html">Cuenta</a></li>
+        </ul>
+    </nav>
     <div class="container">
-        <nav>
-            <ul>
-                <li><a href="Menuprincipal.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="acerca.html">Acerca de</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Cuenta</a></li>
-            </ul>
-        </nav>
+        <!-- Carrusel de imágenes -->
         <div class="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item">
@@ -156,7 +180,10 @@
                     <img src="carousel/imagen3.jpg" alt="Imagen 3">
                 </div>
             </div>
+            <button class="carousel-control left" onclick="moverCarrusel(-1)">&#10094;</button>
+            <button class="carousel-control right" onclick="moverCarrusel(1)">&#10095;</button>
         </div>
+
         <div class="content">
             <h2>Título Principal</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros id nunc volutpat placerat. Donec tincidunt velit vitae lorem pretium vehicula.</p>
@@ -164,21 +191,23 @@
     </div>
 
     <!-- Botón para abrir/cerrar el chatbot -->
-    <button id="chatButton">💬</button>
+    <button id="chatButton" aria-label="Abrir chat">💬</button>
 
     <!-- Contenedor del chatbot -->
-    <div id="chatContainer">
+    <div id="chatContainer" aria-labelledby="chatButton">
         <div class="header">Chatbot Óptico</div>
-        <div id="chatbox"></div>
-        <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
-        <div id="suggestions"></div>
+        <div id="chatbox" aria-live="polite"></div>
+        <input type="text" id="userInput" placeholder="Escribe tu mensaje..." aria-placeholder="Escribe tu mensaje">
+        <div id="suggestions" role="listbox"></div>
     </div>
 
     <footer>
-        <a href="cupones.html">Cupones</a>
-        <a href="terminos.html">Términos y Condiciones</a>
-        <a href="politica.html">Política de Privacidad</a>
-        <a href="legal.html">Aviso Legal</a>
+        <!-- Barra final con contenido seleccionable -->
+        <a href="cupones.html" aria-label="Ver cupones de descuento">Cupones</a>
+        <a href="terminos.html" aria-label="Ver términos y condiciones">Términos y Condiciones</a>
+        <a href="politica.html" aria-label="Ver política de privacidad">Política de Privacidad</a>
+        <a href="legal.html" aria-label="Ver aviso legal">Aviso Legal</a>
+       
     </footer>
 
     <script>
@@ -229,48 +258,50 @@
 
             if (input) {
                 const sugerencias = palabrasClave.filter(palabra => palabra.startsWith(input));
+                sugerencias.forEach(sug => {
+                    const sugerenciaDiv = document.createElement('div');
+                    sugerenciaDiv.textContent = sugerenciasDiv;
+                    sugerenciaDiv.onclick = () => {
+                        userInput.value = sugerenciasDiv;
+                        enviarMensaje();
+                    };
+                    suggestionsDiv.appendChild(sugerenciaDiv);
+                });
+
                 if (sugerencias.length > 0) {
-                    sugerencias.forEach(palabra => {
-                        const div = document.createElement('div');
-                        div.className = 'suggestion';
-                        div.textContent = palabra;
-                        div.onclick = () => seleccionarSugerencia(palabra);
-                        suggestionsDiv.appendChild(div);
-                    });
-                    suggestionsDiv.style.display = 'block'; // Mostrar sugerencias
+                    suggestionsDiv.style.display = 'block';
                 } else {
-                    suggestionsDiv.style.display = 'none'; // Ocultar si no hay sugerencias
+                    suggestionsDiv.style.display = 'none';
                 }
             } else {
-                suggestionsDiv.style.display = 'none'; // Ocultar si no hay entrada
+                suggestionsDiv.style.display = 'none';
             }
         }
 
-        function seleccionarSugerencia(palabra) {
-            userInput.value = palabra; // Completar la entrada
-            suggestionsDiv.style.display = 'none'; // Ocultar sugerencias
-            enviarMensaje(); // Enviar el mensaje
+        // Mostrar el chatbot al hacer clic en el botón
+        chatButton.onclick = () => {
+            chatContainer.style.display = chatContainer.style.display === 'none' ? 'block' : 'none';
+        };
+
+        // Funcionalidad del carrusel
+        let carruselIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        function moverCarrusel(direction) {
+            carruselIndex += direction;
+            if (carruselIndex < 0) {
+                carruselIndex = items.length - 1;
+            } else if (carruselIndex >= items.length) {
+                carruselIndex = 0;
+            }
+            const newTransform = -carruselIndex * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${newTransform}%)`;
         }
 
+        // Eventos
         userInput.addEventListener('input', mostrarSugerencias);
-        userInput.addEventListener('keypress', function(e) {
+        userInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 enviarMensaje();
-            }
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!suggestionsDiv.contains(event.target) && event.target !== userInput) {
-                suggestionsDiv.style.display = 'none'; // Ocultar si se hace clic fuera
-            }
-        });
-
-        // Funcionalidad para abrir/cerrar el chatbot
-        chatButton.addEventListener('click', () => {
-            if (chatContainer.style.display === 'none' || chatContainer.style.display === '') {
-                chatContainer.style.display = 'block';
-            } else {
-                chatContainer.style.display = 'none';
             }
         });
     </script>
